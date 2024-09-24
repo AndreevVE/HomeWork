@@ -1,0 +1,13 @@
+#!/bin/bash
+
+dnf update -y
+dnf install -y docker
+systemctl start docker
+systemctl enable docker
+usermod -aG docker ec2-user
+dnf install -y git
+cd /opt/
+git clone https://github.com/AndreevVE/JuliaWeb.git
+cd JuliaWeb/Web
+docker build -t .
+docker run -d -p5000:80 --name web-project julia-web-project
