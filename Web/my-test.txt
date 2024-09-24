@@ -10,4 +10,4 @@ cd /opt/
 git clone https://github.com/AndreevVE/JuliaWeb.git
 cd JuliaWeb/Web
 docker build -t .
-docker run -d -p5000:80 --name web-project julia-web-project
+docker run -d -p8080:80 --name web-project julia-web-project
